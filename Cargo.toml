@@ -1,0 +1,15 @@
+[package]
+name = "iterative-solvers"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/SuperInstance/iterative-solvers"
+description = "Iterative linear algebra solvers in Rust — CG, GMRES, BiCGSTAB, Krylov methods, preconditioners, sparse solvers"
+
+[dependencies]
+nalgebra = "0.33"
+serde = { version = "1", features = ["derive"] }
+num-traits = "0.2"
+
+[dev-dependencies]
+approx = "0.5"
