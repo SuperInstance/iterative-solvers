@@ -23,7 +23,7 @@ All algorithms operate on plain `Vec<Vec<f64>>` (dense) or `CsrMatrix`/`CooMatri
 
 ```toml
 [dependencies]
-iterative-solvers = "0.1.0"
+iterative-linalg = "0.1.0"
 ```
 
 ## Quick Start
@@ -31,7 +31,7 @@ iterative-solvers = "0.1.0"
 ### Solve a dense system with Conjugate Gradient
 
 ```rust
-use iterative_solvers::{cg, ConvergenceCriteria};
+use iterative_linalg::{cg, ConvergenceCriteria};
 
 let a = vec![
     vec![4.0, 1.0, 0.0],
@@ -48,7 +48,7 @@ println!("x = {:?}", result.x);
 ### Build a sparse system and solve it
 
 ```rust
-use iterative_solvers::sparse::{CooMatrix, sparse_cg};
+use iterative_linalg::sparse::{CooMatrix, sparse_cg};
 
 let mut coo = CooMatrix::new(3, 3);
 coo.add_entry(0, 0, 4.0);
@@ -69,8 +69,8 @@ assert!(result.converged);
 ### Preconditioned sparse CG
 
 ```rust
-use iterative_solvers::sparse::CooMatrix;
-use iterative_solvers::preconditioner::{JacobiPreconditioner, preconditioned_cg};
+use iterative_linalg::sparse::CooMatrix;
+use iterative_linalg::preconditioner::{JacobiPreconditioner, preconditioned_cg};
 
 let csr = /* ... */;
 let precond = JacobiPreconditioner::from_csr(&csr);
